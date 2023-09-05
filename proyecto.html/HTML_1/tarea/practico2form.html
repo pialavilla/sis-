@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script scr="archivo.js">
+      function mostrarDatos(){
+         nombre=document.getElementById("nombre").value;
+         apellido=document.getElementById("apellido").value;
+         number=document.getElementById("number").value;
+         fechadnacimiento=document.getElementById("fechadnacimiento").value;
+         domicilio=document.getElementById("domicilio").value;
+         localidad=document.getElementById("localidad").value;
+
+
+         // crear un array para guardar opciones
+         idioma=[];
+         espanol=document.getElementById("box1");
+         ingles=document.getElementById("box2");
+         frances=document.getElementById("box3");
+         chino=document.getElementById("box4");
+
+
+         //en caso de que esten marcadas las agrego
+         if(espanol.checked){
+            idioma.push(espanol.value);
+         }
+         if(ingles.checked){
+            idioma.push(ingles.value);
+         }
+         if(frances.checked){
+            idioma.push(frances.value);
+         }
+         if(chino.checked){
+            idioma.push(chino.value);
+         }
+
+         //para poder imprimir todas las funciones juntas
+         mensaje=" ";
+         for (i=0; i<idioma.length;i++){
+            element=idioma[i];
+            mensaje+=element+" - ";
+      }
+      document.write("Datos Ingresados: <br/>");
+         document.write("nombre: "+nombre+ "<br/>");
+         document.write("apellido: "+apellido+"<br/>");
+         document.write("dni: "+number+"<br/>");
+         document.write("fecha de nacimiento: "+fechadnacimiento+"<br/>");
+         document.write("domicilio: "+domicilio+"<br/>");
+         document.write("localidad: "+localidad+"<br/>");
+         document.write("idiomas: " +mensaje+ "<br/>");
+      }
+</script>
+<title>Document</title>
+
+</head>
+<body>
+<h1>Formulario de carga de datos</h1>
+<form action="">
+
+      <p><label for="nombre">Nombre: </label>
+         <input type="text" id="nombre"></p>
+
+      <label for="apellido">Apellido: </label>
+         <input type="text" id="apellido"></p>
+
+      <label for="number">Numero DNI: </label>
+         <input type="number" id="number"></p>
+
+      <p><label for="fechadnacimiento">Fecha de nacimiento: </label>
+         <input type="date" id="fechadnacimiento"></p>
+
+      <p><label for="domicilio"> Domicilio: </label>
+         <input type="text" id="domicilio"></p>
+
+      <p><label for="localidad">Localidad: </label>
+         <input type="text" id="localidad"></p>
+
+<h3>Idiomas que conoces: </h3>           
+         <label for="box1">Espanol</label>
+         <input type="checkbox" name="idioma" id="box1" value="espanol">
+         <input type="range" step="10" min="0" max="100" id="box1"><br>
+
+         <label for="box2">Ingles</label>
+         <input type="checkbox" name="idioma" id="box2" value="ingles">
+         <input type="range" step="10" min="0" max="100" id="box2"><br>
+
+         <label for="box3">Frances</label>
+         <input type="checkbox" name="idioma" id="box3" value="frances">
+         <input type="range" step="10" min="0" max="100" id="box3"><br>
+
+         <label for="box4">Chino</label>
+         <input type="checkbox" name="idioma" id="box4" value="chino">
+         <input type="range" step="10" min="0" max="100" id="box4"><br>
+
+<h4>Botones de accion</h4>
+
+<button type="submit" onClick="mostrarDatos()">Enviar y Mostrar</button>
+<button type="reset">Borrar</button>
+</form>
+</body>
+</html>
